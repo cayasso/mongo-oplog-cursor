@@ -54,7 +54,7 @@ cursor.init = function init(options) {
  * @api public
  */
 
-cursor.cursor = function cursor(fn) {
+cursor.cursor = function get(fn) {
   var query = {};
   var ns = this.ns;
   var coll = this.coll;
