@@ -10,7 +10,6 @@ var MongoClient = require('mongodb').MongoClient;
 var MongoOplogCursor = require('../');
 var db;
 var conn = {
-  mongo: 'mongodb://127.0.0.1:27017/test',
   oplog: 'mongodb://127.0.0.1:27017/local'
 };
 
@@ -52,9 +51,7 @@ describe('mongo-oplog', function () {
   });
 
   after(function (done) {
-    db.dropDatabase(function () {
-      db.close(done);
-    });
+    db.close(done);
   });
 
 });
