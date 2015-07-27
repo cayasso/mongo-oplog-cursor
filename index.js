@@ -66,8 +66,9 @@ cursor.cursor = function get(fn) {
       tailable: true,
       timeout: false,
       awaitdata: true,
+      oplogReplay: true,
       cursorReplay: true,
-      numberOfRetries: -1
+      numberOfRetries: Number.MAX_VALUE
     }));
   });
   return this;
