@@ -84,7 +84,7 @@ cursor.cursor = function get(fn) {
 cursor.timestamp = function timestamp(fn) {
   var ts = this.ts;
   var coll = this.coll;
-  if (ts) return fn(null, Timestamp(0, ts));
+  if (ts) return fn(null, 'number' !== typeof ts ? ts : Timestamp(0, ts));
   coll
     .find({}, { ts: 1 })
     .sort({ $natural: -1 })
