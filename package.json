@@ -22,14 +22,14 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "bson": "^0.2.18",
-    "debug": "0.7.x",
-    "eventemitter3": "^0.1.6"
+    "bson-timestamp": "^0.1.1",
+    "debug": "2.2.x",
+    "eventemitter3": "^1.1.1"
   },
   "devDependencies": {
     "mocha": "*",
-    "mongodb": "^1.4.29",
-    "pre-commit": "0.0.9",
-    "should": "~3.1.2"
+    "mongodb": "^2.0.43",
+    "pre-commit": "1.1.1",
+    "should": "~7.1.0"
   }
 }

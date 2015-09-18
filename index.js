@@ -5,7 +5,7 @@
  */
 
 var debug = require('debug')('mongo-oplog-cursor');
-var Timestamp = require('bson').Timestamp;
+var Timestamp = require('bson-timestamp');
 
 /**
  * Core object inherited from emitter.
