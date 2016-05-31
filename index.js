@@ -9,7 +9,7 @@ var Timestamp = require('bson-timestamp');
 
 /**
  * Core object inherited from emitter.
- * 
+ *
  * @type {Object}
  * @api public
  */
@@ -18,7 +18,7 @@ var cursor = Object.create(null);
 
 /**
  * Create a cursor object.
- * 
+ *
  * @param {Object} options
  * @return {Cursor}
  * @api public
@@ -62,14 +62,13 @@ cursor.cursor = function get(fn) {
   this.timestamp(function timestamp(err, ts) {
     if (err) return fn(err);
     query.ts = { $gt: ts };
-    fn(null, coll.find(query, {
-      tailable: true,
-      timeout: false,
-      awaitdata: true,
-      oplogReplay: true,
-      cursorReplay: true,
-      numberOfRetries: Number.MAX_VALUE
-    }));
+    var newCursor = coll.find(query)
+    newCursor.addCursorFlag('tailable', true)
+    newCursor.addCursorFlag('awaitData', true)
+    newCursor.addCursorFlag('oplogReplay', true)
+    newCursor.addCursorFlag('noCursorTimeout', true)
+    newCursor.setCursorOption('numberOfRetries', Number.MAX_VALUE)
+    fn(null, newCursor)
   });
   return this;
 };
